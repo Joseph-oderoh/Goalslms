@@ -18,9 +18,17 @@ export class GoalComponent implements OnInit {
  toggleDetails(index:number){
   this.goals[index].showDescription = !this.goals[index].showDescription;
 }
-completeGoal(isComplete: any, index: number){
+// completeGoal(isComplete: any, index: number){
+//   if (isComplete) {
+//     this.goals.splice(index,1);
+//   }
+deleteGoal(isComplete: any, index: number){
   if (isComplete) {
     this.goals.splice(index,1);
+    let toDelete = confirm (`ARE YOU SURE U WANT TO DELETE THIS ${this.goals[index].name}?`);
+    if(toDelete){
+      this.goals.splice(index,1);
+    }
   }
 }
   constructor() { }
